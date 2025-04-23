@@ -12,5 +12,5 @@ setup(
     author_email = "lincroft.g@northeastern.edu",
     packages=find_packages(),
     install_requires=requirements,
-    python_requires='3.11'
+    python_requires='=3.11'
 )
