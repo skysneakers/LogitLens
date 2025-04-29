@@ -123,7 +123,7 @@ class LogitVis():
         
         df_melted = df.melt(id_vars=["Input Token"], var_name="Layer Source", value_name=self.metric)
         
-        layer_name = layer if layer is not -1 else len(self.words) - 1
+        layer_name = layer if layer != -1 else len(self.words) - 1
         
         fig = px.line(df_melted,
                       x="Input Token",
