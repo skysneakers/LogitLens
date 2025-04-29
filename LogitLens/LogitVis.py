@@ -46,7 +46,8 @@ class LogitVis():
         fig = px.imshow(
             self.metric_data,
             x=list(range(len(self.words))),
-            y=self.input_words,
+            # y=self.input_words,
+            y=[f"{word} ({i})" for i, word in enumerate(self.input_words)],
             color_continuous_scale=px.colors.diverging.RdYlBu_r,
             text_auto=True,
             labels=dict(x="Layers", y="Input Tokens", color=self.metric),
@@ -116,7 +117,7 @@ class LogitVis():
         
         # Create a dataframe of lines
         df = pd.DataFrame({
-            "Input Token" : self.input_words,
+            "Input Token" : [f"{word} ({i})" for i, word in enumerate(self.input_words)],
             "Current Token Prediction" : self.metric_data.T[layer]
         })
         
