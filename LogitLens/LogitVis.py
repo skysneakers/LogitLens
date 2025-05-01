@@ -132,10 +132,10 @@ class LogitVis():
                       title=f"{self.metric} for layer {layer_name}",
                       labels={self.metric: self.metric, "Token": "Token"})
         fig.update_traces(mode="lines+markers")
-        fig.update_traces(text = self.transposed_words[layer],
+        fig.update_traces(text = self.words[layer],
                           texttemplate="%{text}")
         fig.update_traces(hovertemplate =
-            "Input Token: {x}<br>" +
+            "Input Token: %{x}<br>" +
             f"Layer: {layer_name}<br>" +
             "Predicted Token: %{text}<br>" +
             f"{self.metric}: " + "%{y:.4f}<br>" +
